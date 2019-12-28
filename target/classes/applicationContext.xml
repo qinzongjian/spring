@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd"
+	default-autowire="byName" <!-- 通过名称进行自动装配，全局有效 -->
+	>
+	
+	<!-- 启用IOC容器的bean自动扫描 -->
+	<context:component-scan base-package="com.qinzj"></context:component-scan>
+	
+	<!--
+	<bean id="user" class="com.qinzj.entity.UserEntity">
+		<property name="name" value="qinzj"></property>
+		<property name="age" value="30"></property>
+		<property name="height" value="172"></property>
+	</bean>
+	
+	 
+	<bean id="userService" class="com.qinzj.service.UserService">
+		<property name="user" ref="user"></property>
+	</bean>
+	
+	<bean id="userController" class="com.qinzj.controller.UserController">
+	</bean>
+	 -->
+	
+	<bean id="a" class="com.qinzj.entity.A">
+		<!-- <constructor-arg name="b" ref="b"></constructor-arg> -->
+		<property name="b" ref="b"></property>
+	</bean>
+	
+	<bean id="b" class="com.qinzj.entity.B">
+		<!-- <constructor-arg name="a" ref="a"></constructor-arg> -->
+		<property name="a" ref="a"></property>
+	</bean>
+	
+	<!-- 增加对事务的支持 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<!-- 数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
+		<property name="url" value="127.0.0.1:1521:orcl"></property>
+		<property name="username" value="imei3_dev"></property>
+		<property name="password" value="imei3_dev"></property>
+		<property name="maxActive" value="10"></property>
+		<property name="maxIdle" value="6"></property>
+	</bean>
+	
+	<aop:config>
+		<aop:pointcut expression="" id=""/>
+		<aop:advisor advice-ref=""/>
+	</aop:config>
+	
+	
+	
+</beans>
