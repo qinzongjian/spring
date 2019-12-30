@@ -21,6 +21,9 @@ public class UserService {
 	
 	public String showUserInfo() {
 		System.out.println(user);
+		
+		user = null; //模拟异常通知
+		
 		return user.toString();
 	}
 	

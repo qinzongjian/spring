@@ -13,12 +13,13 @@ import com.qinzj.controller.UserController;
 */
 public class Example001 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		//获取spring配置文件
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 		//获取bean
 		UserController userController = (UserController)ctx.getBean("userController");
 		//调用bean的方法
+		
 		userController.showUserInfo();
 		
 	}
