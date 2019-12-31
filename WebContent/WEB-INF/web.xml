@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:applicationContext.xml
+		</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>userServlet</servlet-name>
+		<servlet-class>com.qinzj.servlet.UserServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userServlet</servlet-name>
+		<url-pattern>/userServlet</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
