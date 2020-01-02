@@ -16,9 +16,9 @@
 	<!-- 上面的default-autowire="byName" 通过名称进行自动装配，全局有效 -->
 	
 	<!-- 启用IOC容器的bean自动扫描 -->
-	<context:component-scan base-package="com.qinzj"></context:component-scan>
 	
-	<!--
+	<context:component-scan base-package="com.qinzj"></context:component-scan>
+	<!-- 
 	<bean id="user" class="com.qinzj.entity.UserEntity">
 		<property name="name" value="qinzj"></property>
 		<property name="age" value="30"></property>
@@ -26,14 +26,14 @@
 	</bean>
 	
 	 
-	<bean id="userService" class="com.qinzj.service.UserService">
+	<bean id="userService" class="com.qinzj.service.UserService" init-method="init" destroy-method="destory">
 		<property name="user" ref="user"></property>
 	</bean>
 	
 	<bean id="userController" class="com.qinzj.controller.UserController">
 	</bean>
 	 -->
-	
+	<!--  -->
 	<bean id="a" class="com.qinzj.entity.A">
 		<!-- <constructor-arg name="b" ref="b"></constructor-arg> -->
 		<property name="b" ref="b"></property>

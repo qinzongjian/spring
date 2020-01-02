@@ -34,18 +34,23 @@ public class UserServlet extends HttpServlet {
 		//ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
 		ApplicationContext context = new AnnotationConfigApplicationContext(MySpringConfig.class);
 		//ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		userService = (UserService) context.getBean("userService");
+		//userService = (UserService) context.getBean("myFactoryBean");
+		//加&符合，取的就是myFactoryBean对象，不加&符合，则取的是myFactoryBean里面的实际对象
+		//userService = (UserService) context.getBean("&myFactoryBean");
+		//userService = (UserService) context.getBean("userService");
 		userService2 = (UserService) context.getBean("userService2");
-		userService3 = (UserService) context.getBean("userService2");
+		//userService3 = (UserService) context.getBean("userService2");
 		
-		System.out.println(userService == userService2);
-		System.out.println(userService3 == userService2);
+		//System.out.println(userService == userService2);
+		//System.out.println(userService3 == userService2);
 		
 		String[] beanNames = context.getBeanDefinitionNames();
 		
 		for(String beanName : beanNames) {
 			System.out.println("====>>" + beanName);
 		}
+		
+		((AnnotationConfigApplicationContext)context).close();
 		
 	}
 	

@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.qinzj.entity.UserEntity;
 
-@Component("userService")
+//@Component("userService")
 public class UserService {
 	
 	@Autowired //全局配置可通过在applicationContenxt.xml文件中配置default-autowire="byType/byName"
@@ -15,7 +15,15 @@ public class UserService {
 	public UserEntity getUser() {
 		return user;
 	}
-
+	
+	public void init() {
+		System.out.println("初始化userService");
+	}
+	
+	public void destory() {
+		System.out.println("销毁userService");
+	}
+	
 	public void setUser(UserEntity user) {
 		this.user = user;
 	}
