@@ -33,7 +33,23 @@ public class UserServlet extends HttpServlet {
 		
 		//ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
 		ApplicationContext context = new AnnotationConfigApplicationContext(MySpringConfig.class);
-		//ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+//		ApplicationContext context3 = new AnnotationConfigApplicationContext(MySpringConfig.class);
+//		ApplicationContext context4 = new AnnotationConfigApplicationContext(MySpringConfig.class);
+//		ApplicationContext context5 = new AnnotationConfigApplicationContext(MySpringConfig.class);
+//		ApplicationContext context6 = new ClassPathXmlApplicationContext("applicationContext.xml");
+//		ApplicationContext context7 = new ClassPathXmlApplicationContext("applicationContext.xml");
+//		ApplicationContext context8 = new ClassPathXmlApplicationContext("applicationContext.xml");
+//		ApplicationContext context9 = new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+		System.out.println(">>>>>>>>>>>>>>>>>>>>" + context);
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>" + context3);
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>" + context4);
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>" + context5);
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>" + context6);
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>" + context7);
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>" + context8);
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>" + context9);
+		
 		//userService = (UserService) context.getBean("myFactoryBean");
 		//加&符合，取的就是myFactoryBean对象，不加&符合，则取的是myFactoryBean里面的实际对象
 		//userService = (UserService) context.getBean("&myFactoryBean");
