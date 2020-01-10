@@ -32,11 +32,11 @@ public class UserServlet extends HttpServlet {
 	public void init() throws ServletException {
 		
 		//ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
-		ApplicationContext context = new AnnotationConfigApplicationContext(MySpringConfig.class);
+		//ApplicationContext context = new AnnotationConfigApplicationContext(MySpringConfig.class);
 //		ApplicationContext context3 = new AnnotationConfigApplicationContext(MySpringConfig.class);
 //		ApplicationContext context4 = new AnnotationConfigApplicationContext(MySpringConfig.class);
 //		ApplicationContext context5 = new AnnotationConfigApplicationContext(MySpringConfig.class);
-//		ApplicationContext context6 = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 //		ApplicationContext context7 = new ClassPathXmlApplicationContext("applicationContext.xml");
 //		ApplicationContext context8 = new ClassPathXmlApplicationContext("applicationContext.xml");
 //		ApplicationContext context9 = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -53,8 +53,8 @@ public class UserServlet extends HttpServlet {
 		//userService = (UserService) context.getBean("myFactoryBean");
 		//加&符合，取的就是myFactoryBean对象，不加&符合，则取的是myFactoryBean里面的实际对象
 		//userService = (UserService) context.getBean("&myFactoryBean");
-		//userService = (UserService) context.getBean("userService");
-		userService2 = (UserService) context.getBean("userService2");
+		userService = (UserService) context.getBean("userService");
+		//userService2 = (UserService) context.getBean("userService2");
 		//userService3 = (UserService) context.getBean("userService2");
 		
 		//System.out.println(userService == userService2);
